@@ -44,6 +44,7 @@ ALTER TABLE ONLY public.bed_state
 
 CREATE TABLE public.bed (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    name VARCHAR(255) NOT NULL,
     state_last_changed BIGINT NOT NULL DEFAULT EXTRACT(EPOCH FROM now()) *  1000,
     station_id UUID REFERENCES station(id) NOT NULL,
     bed_type_id UUID REFERENCES bed_type(id) NOT NULL,
