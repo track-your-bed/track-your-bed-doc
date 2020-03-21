@@ -7,11 +7,19 @@ entity hospital {
     long : VARCHAR (255)
 }
 
+
+entity department {
+    id: UUID PRIMARY KEY
+    name: VARCHAR (255) NOT NULL
+    --
+    hospital_id : FK hospital.id NOT NULL
+}
+
 entity station {
     id : UUID PRIMARY KEY
     name : VARCHAR (255) NOT NULL
     --
-    hospital_id : FK hospital.id NOT NULL
+    department_id : FK department.id NOT NULL
     station_type_id : FK station_type.id NOT NULL
 }
 
