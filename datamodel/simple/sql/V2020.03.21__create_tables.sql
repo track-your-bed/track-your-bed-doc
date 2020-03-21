@@ -34,6 +34,8 @@ CREATE TABLE public.bed_type (
 ALTER TABLE ONLY public.bed_type
     ADD CONSTRAINT bed_type_unique_name UNIQUE(name);
 
+CREATE INDEX bed_type_idx_name ON bed_type USING btree(name);
+
 
 CREATE TABLE public.bed_type_count (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),

@@ -32,6 +32,8 @@ entity bed_type {
     name : VARCHAR (255) NOT NULL
     --
     bed_type_unique_name: UNIQUE(name)
+    --
+    bed_type_idx_name: INDEX(name)
 }
 
 entity station_type {

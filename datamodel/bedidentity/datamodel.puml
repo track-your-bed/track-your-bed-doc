@@ -36,7 +36,9 @@ entity bed_type {
     id : UUID PRIMARY KEY
     name : VARCHAR (255) NOT NULL
     --
-    entity_bed_type_unique_name: UNIQUE(name)
+    bed_type_unique_name: UNIQUE(name)
+    --
+    bed_type_idx_name: INDEX(name)
 }
 
 entity bed_state {
@@ -44,6 +46,8 @@ entity bed_state {
     name : VARCHAR (255) NOT NULL
     --
     bed_state_unique_name: UNIQUE(name)
+    --
+    bed_state_idx_name: UNIQUE(name)
 }
 
 hospital --|{ station
