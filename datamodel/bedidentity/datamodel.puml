@@ -24,6 +24,7 @@ entity station_type {
 
 entity bed {
     id : UUID PRIMARY KEY
+    name: VARCHAR (255) NOT NULL
     state_last_changed : BIGINT NOT NULL DEFAULT EXTRACT(EPOCH FROM NOW()) * 1000
     --
     type : FK bed_type.id
