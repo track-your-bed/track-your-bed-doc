@@ -1,15 +1,15 @@
 @startuml
 entity hospital {
     id : UUID PRIMARY KEY
-    name : VARCHAR2(200) NOT NULL
+    name : VARCHAR (255) NOT NULL
     max_capacity : SMALLINT NOT NULL
-    lat : VARCHAR2(200)
-    long : VARCHAR2(200)
+    lat : VARCHAR (255)
+    long : VARCHAR (255)
 }
 
 entity station {
     id : UUID PRIMARY KEY
-    name : VARCHAR2(200) NOT NULL
+    name : VARCHAR (255) NOT NULL
     --
     hospital_id : FK hospital.id NOT NULL
     station_type_id : FK station_type.id NOT NULL
@@ -17,14 +17,14 @@ entity station {
 
 entity station_type {
     id : UUID PRIMARY KEY
-    name : VARCHAR2(200) NOT NULL
+    name : VARCHAR (255) NOT NULL
     --
     station_type_unique_name: UNIQUE(name)
 }
 
 entity bed {
     id : UUID PRIMARY KEY
-    state_last_changed : BIGINT NOT NULL DEFAULT EXTRACT(EPOCH FROM NOW() * 1000)
+    state_last_changed : BIGINT NOT NULL DEFAULT EXTRACT(EPOCH FROM NOW()) * 1000
     --
     type : FK bed_type.id
     state : FK bed_state.id
@@ -33,14 +33,14 @@ entity bed {
 
 entity bed_type {
     id : UUID PRIMARY KEY
-    name : VARCHAR2(200) NOT NULL
+    name : VARCHAR (255) NOT NULL
     --
     entity_bed_type_unique_name: UNIQUE(name)
 }
 
 entity bed_state {
     id : UUID PRIMARY KEY
-    name : VARCHAR2(200) NOT NULL
+    name : VARCHAR (255) NOT NULL
     --
     bed_state_unique_name: UNIQUE(name)
 }
@@ -50,5 +50,4 @@ station }|-- station_type
 station --|{ bed
 bed }|-- bed_type
 bed }|-- bed_state
-
 @enduml

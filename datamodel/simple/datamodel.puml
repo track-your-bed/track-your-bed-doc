@@ -1,15 +1,15 @@
 @startuml
 entity hospital {
     id : UUID PRIMARY KEY
-    name : VARCHAR2(200) NOT NULL
+    name : VARCHAR (255) NOT NULL
     max_capacity : SMALLINT NOT NULL
-    lat : VARCHAR2(200)
-    long : VARCHAR2(200)
+    lat : VARCHAR (255)
+    long : VARCHAR (255)
 }
 
 entity station {
     id : UUID PRIMARY KEY
-    name : VARCHAR2(200) NOT NULL
+    name : VARCHAR (255) NOT NULL
     --
     hospital_id : FK hospital.id NOT NULL
     station_type_id : FK station_type.id NOT NULL
@@ -17,26 +17,26 @@ entity station {
 
 entity bed_type_count {
     id : UUID PRIMARY KEY
-    max_count : SMALLINT NOT NULL
+    max_capacity : SMALLINT NOT NULL
     current_occupied: SMALLINT NOT NULL
     occupied_last_changed: BIGINT NOT NULL DEFAULT EXTRACT(EPOCH FROM NOW() * 1000)
     --
     station_id : FK station.id NOT NULL
-    bet_type_id : FK bed_type.id NOT NULL
+    bed_type_id : FK bed_type.id NOT NULL
     --
-    bet_type_count_unique_bed_type_id_station_id: UNIQUE(bed_type_id, station_id)
+    bed_type_count_unique_bed_type_id_station_id: UNIQUE(bed_type_id, station_id)
 }
 
 entity bed_type {
     id : UUID PRIMARY KEY
-    name : VARCHAR2(200) NOT NULL
+    name : VARCHAR (255) NOT NULL
     --
     bed_type_unique_name: UNIQUE(name)
 }
 
 entity station_type {
     id : UUID PRIMARY KEY
-    name : VARCHAR2(200) NOT NULL
+    name : VARCHAR (255) NOT NULL
     --
     station_type_unique_name: UNIQUE(name)
 }
