@@ -50,7 +50,7 @@ table name: `bed_type`
 Fields:
 
 - `id`: the unique `UUID`
-- `name`: the name of the bed type, as `VARCHAR (255) NOT NULL`
+- `name`: the name of the bed type, as `VARCHAR (255) NOT NULL`. This database column should be indexed.
 
 Implementation remark:
 

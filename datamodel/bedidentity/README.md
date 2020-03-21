@@ -51,7 +51,7 @@ table name: `bed_type`
 Fields:
 
 - `id`: the unique `UUID`.
-- `name`: the name of the bed type, as `VARCHAR (255) NOT NULL`.
+- `name`: the name of the bed type, as `VARCHAR (255) NOT NULL`. This database column should be indexed.
 
 Implementation remark:
 
@@ -64,8 +64,7 @@ table name: `bed_state`
 Fields:
 
 - `id`: the unique `UUID`.
-- `name`: the name of the bed, as `VARCHAR (255) NOT NULL`.
-- `name`: the name of the bed state, as `VARCHAR (255) NOT NULL`.
+- `name`: the name of the bed state, as `VARCHAR (255) NOT NULL`. This database column should be indexed.
 
 Implementation remark:
 
