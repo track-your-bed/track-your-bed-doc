@@ -12,7 +12,7 @@ entity station {
     name : VARCHAR (255) NOT NULL
     --
     hospital_id : FK hospital.id NOT NULL
-    station_type_id : FK station_type.id NOT NULL
+    station_type_name : FK station_type.name NOT NULL
 }
 
 entity bed_type_count {
@@ -22,7 +22,7 @@ entity bed_type_count {
     occupied_last_changed: BIGINT NOT NULL DEFAULT EXTRACT(EPOCH FROM NOW() * 1000)
     --
     station_id : FK station.id NOT NULL
-    bed_type_id : FK bed_type.id NOT NULL
+    bed_type_name : FK bed_type.name NOT NULL
     --
     bed_type_count_unique_bed_type_id_station_id: UNIQUE(bed_type_id, station_id)
 }

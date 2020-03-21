@@ -41,7 +41,7 @@ Fields:
 - `id`: the unique `UUID`.
 - `name`: the name of the station, as `VARCHAR (255) NOT NULL`.
 - `hospital_id`: the foreign key to the corresponding `hospital`. This database column should be indexed. Not nullable.
-- `station_type_id`: the foreign key to the corresponding `station_type`. This database column should be indexed. Not 
+- `station_type_name`: the foreign key to the corresponding `station_type`. This database column should be indexed. Not 
     nullable.
 
 # bed type data type
@@ -69,7 +69,7 @@ Fields:
 - `occupied_last_changed`: the UNIX-timestamp when the `current_occupied` attribute was last changed as 
     `BIGINT NOT NULL DEFAULT EXTRACT(EPOCH FROM NOW() * 1000)`.
 - `station_id`: the foreign key to the corresponding `station`. This database column should be indexed. Not nullable.
-- `bed_type_id`: the foreign key to the corresponding `bed_type`. This database column should be indexed. Not nullable.
+- `bed_type_name`: the foreign key to the corresponding `bed_type`. This database column should be indexed. Not nullable.
 
 Implementation detail:
 

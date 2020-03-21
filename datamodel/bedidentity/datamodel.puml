@@ -12,7 +12,7 @@ entity station {
     name : VARCHAR (255) NOT NULL
     --
     hospital_id : FK hospital.id NOT NULL
-    station_type_id : FK station_type.id NOT NULL
+    station_type_name : FK station_type.id NOT NULL
 }
 
 entity station_type {
@@ -20,6 +20,8 @@ entity station_type {
     name : VARCHAR (255) NOT NULL
     --
     station_type_unique_name: UNIQUE(name)
+    --
+    station_type_indx_name: INDEX(name)
 }
 
 entity bed {
@@ -28,7 +30,7 @@ entity bed {
     state_last_changed : BIGINT NOT NULL DEFAULT EXTRACT(EPOCH FROM NOW()) * 1000
     --
     type : FK bed_type.id
-    state : FK bed_state.id
+    state : FK bed_state.name
     station_id : FK station.id
 }
 
@@ -47,7 +49,7 @@ entity bed_state {
     --
     bed_state_unique_name: UNIQUE(name)
     --
-    bed_state_idx_name: UNIQUE(name)
+    bed_state_idx_name: INDEX(name)
 }
 
 hospital --|{ station
